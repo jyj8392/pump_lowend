@@ -96,9 +96,7 @@ void TaskMain(void *pdata)
 		else
 			sysctl->pressProtect = 0;
 		
-//		sprintf(AccCntStr, "% 9d", (u32)(PumpCtl.calCnt - PumpCtl.accCnt));
-//		ShowStr(3, 0, AccCntStr, 0);
-		
+	
 /*		if (sysctl->flowMode == 0) {
 			char AccCntStr[] = "0000000000";
 			sprintf(AccCntStr, "% 9d", TIM2->ARR);

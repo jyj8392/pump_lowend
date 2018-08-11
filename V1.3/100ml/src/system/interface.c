@@ -124,7 +124,7 @@ void TaskMain(void *pdata)
 				switch (*keyVal) {
 				case KEYL:
 					sysctl->interface = SETTINGFLOW;
-					ShowStr(2, 4, "  .  ", 2);
+					ShowStr(2, 4, "   . ", 2);
 					memset(SetFlowPos, 0, sizeof(SetFlowPos));
 					break;
 				case KEYP:

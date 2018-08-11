@@ -157,7 +157,8 @@ struct pumpflow_t {
 	u16 index;
 	u16 cnt;
 };
-extern struct pumpflow_t const PUMP_FlowPara[10];
+#define FLOWPATALEN	22
+extern struct pumpflow_t const PUMP_FlowPara[FLOWPATALEN];
 struct pumppress_t {
 	u16 pg;
 	u16 pz;
@@ -221,8 +222,7 @@ struct pumpctl_t {
 	u32 accTime;
 	
 	u32 maxTime;
-	
-	struct pumpflow_t flowPara[10];
+	struct pumpflow_t flowPara[FLOWPATALEN];
 };
 extern struct pumpctl_t PumpCtl;
 
@@ -264,7 +264,7 @@ extern struct uart2data_t frameData;
 	#define MAXFLOW		10
 	#define MAXPRESSURE	5
 #define EQUSERNO	"012345"
-#define SOFTSTART	0
+#define SOFTSTART	1
 
 /************Ñ¹Á¦²ÎÊý*************/
 #define PRESS_DEBUG		0

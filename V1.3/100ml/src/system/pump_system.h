@@ -264,7 +264,7 @@ extern struct uart2data_t frameData;
 	#define MAXFLOW		100
 	#define MAXPRESSURE	5
 #define EQUSERNO	"012345"
-#define SOFTSTART	0
+#define SOFTSTART	1
 
 /************Ñ¹Á¦²ÎÊý*************/
 #define PRESS_DEBUG		0

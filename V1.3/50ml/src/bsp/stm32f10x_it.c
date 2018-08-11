@@ -512,122 +512,30 @@ void TIM2_IRQHandler(void)
 *******************************************************************************/
 void TIM3_IRQHandler(void)
 {
-//	s32 calPID = 0;
-//	s32 pidAdj = 0;
-
-//	if (TIM_GetITStatus(TIM3, TIM_IT_Update) != RESET) {
-//		if (PumpCtl.startFlow > PumpCtl.dstFlow) {
-//			if (GetFlowPara(PumpCtl.sysctl->setFlow) < 20) {
-//				TIM2->PSC = 360;
-//				PumpCtl.nowInterval = 100000 / GetFlowPara(PumpCtl.startFlow - 0.8*(PumpCtl.startFlow - PumpCtl.dstFlow) * (PumpCtl.nowTime - PumpCtl.startTime) / (PumpCtl.dstTime - PumpCtl.startTime));
-//				if (PumpCtl.nowInterval < 100000 / GetFlowPara(PumpCtl.startFlow) * 4) 
-//					PumpCtl.nowTime++;
-//			} else {
-//				TIM2->PSC = 36;
-//				PumpCtl.nowInterval = 1000000 / GetFlowPara(PumpCtl.startFlow - 0.8*(PumpCtl.startFlow - PumpCtl.dstFlow) * (PumpCtl.nowTime - PumpCtl.startTime) / (PumpCtl.dstTime - PumpCtl.startTime));
-//				if (PumpCtl.nowInterval < 1000000 / GetFlowPara(PumpCtl.startFlow) * 4) 
-//					PumpCtl.nowTime++;
-//			}
-//		} else if (PumpCtl.startFlow < PumpCtl.dstFlow) {
-//			if (GetFlowPara(PumpCtl.sysctl->setFlow) < 20) {
-//				TIM2->PSC = 360;
-//				PumpCtl.nowInterval = 100000 / GetFlowPara(PumpCtl.startFlow + (PumpCtl.dstFlow - PumpCtl.startFlow) * (PumpCtl.nowTime++ - PumpCtl.startTime) / (PumpCtl.dstTime - PumpCtl.startTime));
-//			} else {
-//				TIM2->PSC = 36;
-//				PumpCtl.nowInterval = 1000000 / GetFlowPara(PumpCtl.startFlow + (PumpCtl.dstFlow - PumpCtl.startFlow) * (PumpCtl.nowTime++ - PumpCtl.startTime) / (PumpCtl.dstTime - PumpCtl.startTime));
-//			}
-//		}
-//		if (PumpCtl.nowTime > PumpCtl.dstTime) {
-//			PumpCtl.startFlow = PumpCtl.dstFlow;
-//			PumpCtl.nowTime = PumpCtl.dstTime;
-//			Cnt_PID.SetPoint = PumpCtl.calCnt - PumpCtl.accCnt;
-//		}
-//		
-//		if (PumpCtl.startFlow == PumpCtl.dstFlow) {
-//			if (PumpCtl.sysctl->flowMode == 0) {
-////				Cnt_PID.SetPoint = PumpCtl.calCnt - PumpCtl.dCndMax / 3 * 2;
-////				calPID = PID_Calc(&Cnt_PID, PumpCtl.accCnt);
-////				if (calPID > pidMax) pidMax = calPID;
-////				if (calPID != 0) {
-////					TIM2->ARR = PumpCtl.nowInterval * (1 - (float)(calPID) / (float)(pidMax) * 0.5);
-////				}
-//				if (PumpCtl.nowInterval < 20) {
-//					Cnt_PID.Kp = (float)(PumpCtl.nowInterval) / 20 * 0.1;
-//					Cnt_PID.Ki = 0.1 - Cnt_PID.Kp;
-//					Cnt_PID.Kd = 0;
-//				} else {
-//					Cnt_PID.Kp = 0.5;
-//					Cnt_PID.Ki = 0.5;
-//					Cnt_PID.Kd = 0;
-//				}
-
-//				Cnt_PID.DeadZone = PumpCtl.dstFlow / 10;
-//				calPID = PID_Calc(&Cnt_PID, PumpCtl.calCnt - PumpCtl.accCnt);
-//				pidAdj = (int)((float)(PumpCtl.nowInterval) + (float)(calPID) / (float)(Cnt_PID.SetPoint) * (float)(PumpCtl.nowInterval));
-//				if (pidAdj < 15) pidAdj = 15;
-//				if ((float)(pidAdj - PumpCtl.nowInterval) / (float)(PumpCtl.nowInterval) > 0.3) 
-//					pidAdj = PumpCtl.nowInterval * 1.3;
-//				else if ((float)(pidAdj - PumpCtl.nowInterval) / (float)(PumpCtl.nowInterval) < -0.3) 
-//					pidAdj = PumpCtl.nowInterval * 0.7;
-//				TIM2->ARR = pidAdj;
-//			}
-//		} else {
-//			TIM2->ARR = PumpCtl.nowInterval;
-////			if ((PumpCtl.calCnt - PumpCtl.accCnt) > PumpCtl.dCndMax) 
-////				PumpCtl.dCndMax = PumpCtl.calCnt - PumpCtl.accCnt;
-//		}
-//		TIM_ClearITPendingBit(TIM3, TIM_IT_Update);
-//	}
-
-//	static double pidAdj = 0;
-//	double calPID = 0;
-//	double lastFlow = PumpCtl.nowFlow;
-
-//		if (TIM_GetITStatus(TIM3, TIM_IT_Update) != RESET) {
-//			
-//		calPID = PID_Calc(&Cnt_PID, PumpCtl.calCnt - PumpCtl.accCnt);
-//		if (PumpCtl.startFlow > PumpCtl.dstFlow) {
-//			PumpCtl.nowFlow = (-1 - calPID / (PumpCtl.dCndMax - Cnt_PID.SetPoint) * (PumpCtl.startFlow - PumpCtl.dstFlow)) + PumpCtl.dstFlow;
-//		} else if (PumpCtl.startFlow < PumpCtl.dstFlow) {
-//			PumpCtl.nowFlow = ((1 - calPID / (Cnt_PID.SetPoint - PumpCtl.dCndMax)) * (PumpCtl.dstFlow - PumpCtl.startFlow)) + PumpCtl.startFlow;
-//		}
-//		
-//		if (PumpCtl.nowFlow <= 0) 
-//			PumpCtl.nowFlow = lastFlow;
-//		if (PumpCtl.nowFlow < PumpCtl.startFlow * 0.3 && PumpCtl.nowState == 2) 
-//			PumpCtl.nowFlow = PumpCtl.startFlow * 0.3;
-//		
-//		
-//		pidAdj = pidAdj * 0.8 + (double)(GetFlowPara(PumpCtl.nowFlow))*0.2;
-
-//		
-//		
-//		if (GetFlowPara(PumpCtl.sysctl->setFlow) < 20) {
-//			TIM2->PSC = 360;
-//			PumpCtl.nowInterval = 100000 / pidAdj;
-//		} else {
-//			TIM2->PSC = 36;
-//			PumpCtl.nowInterval = 1000000 / pidAdj;
-//		}
-//		if (PumpCtl.nowInterval < 15) PumpCtl.nowInterval = 15;
-//		
-//		TIM2->ARR = (u16)(PumpCtl.nowInterval);
-
-
 	double calPID = 0;
 	double pidAdj = 0;
-	u32 rate0 = (u32)(40 + PumpCtl.sysctl->nowPress / 10 + 100 * (PumpCtl.dstFlow - PumpCtl.startFlow) / PumpCtl.dstFlow);	
+	int rate0;
 	double rate1 = 0;
 	
-
 	if (TIM_GetITStatus(TIM3, TIM_IT_Update) != RESET) {
-		if (PumpCtl.isPIDStart == 0 && PumpCtl.nowFlow >= PumpCtl.dstFlow)
+		if (PumpCtl.isPIDStart == 0 && 
+			(((PumpCtl.startFlow < PumpCtl.dstFlow) && (PumpCtl.nowFlow >= PumpCtl.dstFlow)) ||
+			 ((PumpCtl.startFlow > PumpCtl.dstFlow) && (PumpCtl.nowFlow <= PumpCtl.dstFlow)) ||
+			 (PumpCtl.startFlow == PumpCtl.dstFlow)
+			))
 			PumpCtl.isPIDStart = 1;
 		
 		
 		if (PumpCtl.isPIDStart == 0) {
-			PumpCtl.nowFlow = (float)(PumpCtl.nowTime) / rate0 * (PumpCtl.dstFlow - PumpCtl.startFlow) + PumpCtl.startFlow;
-			PumpCtl.nowTime++;			
+			if (PumpCtl.startFlow < PumpCtl.dstFlow) { 
+				rate0 = (int)(40 + PumpCtl.sysctl->nowPress / 10 + 10 * (PumpCtl.dstFlow - PumpCtl.startFlow) / PumpCtl.dstFlow);
+				PumpCtl.nowFlow = (float)(PumpCtl.nowTime) / rate0 * (PumpCtl.dstFlow - PumpCtl.startFlow) + PumpCtl.startFlow;
+			} else if (PumpCtl.startFlow > PumpCtl.dstFlow) {
+				rate0 = (int)(40 + PumpCtl.sysctl->nowPress / 10 + 10 * (PumpCtl.startFlow - PumpCtl.dstFlow) / PumpCtl.startFlow);
+				PumpCtl.nowFlow = (float)(PumpCtl.nowTime) / rate0 * (PumpCtl.dstFlow - PumpCtl.startFlow) + PumpCtl.startFlow;
+			}
+//			if (PumpCtl.calCnt > PumpCtl.accCnt)
+				PumpCtl.nowTime++;			
 		} 
 //		else {
 //			calPID = PID_Calc(&Cnt_PID, PumpCtl.calCnt - PumpCtl.accCnt);
@@ -650,13 +558,14 @@ void TIM3_IRQHandler(void)
 			PumpCtl.nowInterval = 1000000 / pidAdj;
 		}
 		
-		
 		if (PumpCtl.isPIDStart == 1) {
 			calPID = PID_Calc(&Cnt_PID, PumpCtl.calCnt - PumpCtl.accCnt);
 			if (calPID < 0) {
 				rate1 = -calPID / (PumpCtl.calCnt - PumpCtl.accCnt) * 2;
 				PumpCtl.nowInterval = (u16)((float)(TIM2->ARR) * (1 - rate1) + (PumpCtl.nowInterval * 0.90 * rate1));
 			}
+			if (PumpCtl.calCnt < PumpCtl.accCnt)
+				PumpCtl.nowInterval = TIM2->ARR * 1.05;
 		}
 		
 		if (PumpCtl.nowInterval < 15) PumpCtl.nowInterval = 15;
