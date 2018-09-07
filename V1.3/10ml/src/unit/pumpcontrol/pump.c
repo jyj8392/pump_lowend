@@ -268,9 +268,9 @@ u16 GetFlowPara(double flow)
 	
 	if (flow == 0) flow = 100;
 		
-	for (i = 0; i < 10 && flow > PumpCtl.flowPara[i].index; ++i);
-	if (i == 10)
-		cnt = (flow - PumpCtl.flowPara[9].index) * (PumpCtl.flowPara[9].cnt - PumpCtl.flowPara[8].cnt) / (PumpCtl.flowPara[9].index - PumpCtl.flowPara[8].index) + PumpCtl.flowPara[9].cnt;
+	for (i = 0; i < FLOWPATALEN && flow > PumpCtl.flowPara[i].index; ++i);
+	if (i == FLOWPATALEN)
+		cnt = (flow - PumpCtl.flowPara[FLOWPATALEN-1].index) * (PumpCtl.flowPara[FLOWPATALEN-1].cnt - PumpCtl.flowPara[FLOWPATALEN-2].cnt) / (PumpCtl.flowPara[FLOWPATALEN-1].index - PumpCtl.flowPara[FLOWPATALEN-2].index) + PumpCtl.flowPara[FLOWPATALEN-1].cnt;
 	else if (i == 0) 
 		cnt = PumpCtl.flowPara[i].cnt * flow / PumpCtl.flowPara[i].index;
 	else {
@@ -287,7 +287,7 @@ u16 SetFlowPara(u16 flow, u16 curflow)
 	u8 i = 0;
 	double coefficient = (double)flow / (double)curflow;
 
-	for (i = 0; i < 10 && flow > PumpCtl.flowPara[i].index; ++i);
+	for (i = 0; i < FLOWPATALEN && flow > PumpCtl.flowPara[i].index; ++i);
 	
 	if (i == 0 || flow == PumpCtl.flowPara[i].index)
 		PumpCtl.flowPara[i].cnt *= coefficient;
@@ -297,3 +297,4 @@ u16 SetFlowPara(u16 flow, u16 curflow)
 	}
 	return GetFlowPara(flow);
 }
+
