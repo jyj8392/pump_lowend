@@ -1,5 +1,5 @@
 Dependencies for Project 'pump', Target 'Target 1': (DO NOT MODIFY !)
-F (..\src\system\communication.c)(0x5B126E95)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\SRC\INC\LIB_INC -I..\SRC\INC\OS_INC -I..\SRC\BSP -I..\SRC\SYSTEM -I..\SRC\UNIT\LCD320240-I E:\周浦\work\程杰\同田泵电路重做\software\pump_lowend\V1.3\100ml\prj\RTE-I D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I D:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD-o .\objects\communication.o --omf_browse .\objects\communication.crf --depend .\objects\communication.d)
+F (..\src\system\communication.c)(0x5BD43B58)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\SRC\INC\LIB_INC -I..\SRC\INC\OS_INC -I..\SRC\BSP -I..\SRC\SYSTEM -I..\SRC\UNIT\LCD320240-I E:\周浦\work\程杰\同田泵电路重做\software\pump_lowend\V1.3\100ml\prj\RTE-I D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I D:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD-o .\objects\communication.o --omf_browse .\objects\communication.crf --depend .\objects\communication.d)
 I (..\SRC\BSP\include.h)(0x59E30FB5)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
@@ -55,7 +55,7 @@ I (..\SRC\INC\LIB_INC\stm32f10x_tim.h)(0x59E30FD8)
 I (..\SRC\INC\LIB_INC\stm32f10x_usart.h)(0x59E30FD8)
 I (..\SRC\INC\LIB_INC\misc.h)(0x59E30FE2)
 I (..\SRC\SYSTEM\pump_system.h)(0x5B6EDD7E)
-F (..\src\system\interface.c)(0x5B6EE450)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\SRC\INC\LIB_INC -I..\SRC\INC\OS_INC -I..\SRC\BSP -I..\SRC\SYSTEM -I..\SRC\UNIT\LCD320240-I E:\周浦\work\程杰\同田泵电路重做\software\pump_lowend\V1.3\100ml\prj\RTE-I D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I D:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD-o .\objects\interface.o --omf_browse .\objects\interface.crf --depend .\objects\interface.d)
+F (..\src\system\interface.c)(0x5BD43F58)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\SRC\INC\LIB_INC -I..\SRC\INC\OS_INC -I..\SRC\BSP -I..\SRC\SYSTEM -I..\SRC\UNIT\LCD320240-I E:\周浦\work\程杰\同田泵电路重做\software\pump_lowend\V1.3\100ml\prj\RTE-I D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-I D:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD-o .\objects\interface.o --omf_browse .\objects\interface.crf --depend .\objects\interface.d)
 I (..\SRC\BSP\include.h)(0x59E30FB5)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)

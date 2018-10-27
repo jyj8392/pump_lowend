@@ -143,6 +143,11 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>DLGUARM</Key>
+          <Name></Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>DLGTARM</Key>
           <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
@@ -168,7 +173,7 @@
           <Type>0</Type>
           <LineNumber>254</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134257656</Address>
+          <Address>134257680</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -177,23 +182,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>E:\脰脺脝脰\work\鲁脤陆脺\脥卢脤茂卤脙碌莽脗路脰脴脳枚\software\pump_lowend\V1.3\50ml\src\system\interface.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>573</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134254460</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>E:\脰脺脝脰\work\鲁脤陆脺\脥卢脤茂卤脙碌莽脗路脰脴脳枚\software\pump_lowend\V1.3\50ml\src\bsp\stm32f10x_it.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\pump\../src/bsp/stm32f10x_it.c\573</Expression>
+          <Expression>\\pump\../src/system/interface.c\254</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>

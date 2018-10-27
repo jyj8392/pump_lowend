@@ -26,6 +26,7 @@ void TaskMain(void *pdata)
 	char FlowStr[] = "00.00";
 //	u8 SetFlowMode = 0;
 	
+	u16 LastSetPressure = 0;
 	u8 SetPressMaxPos[] = {0, 0, 0, 0};
 	u8 SetPressMaxPosIndex;
 	char PressMaxStr[] = "00.00";
@@ -198,6 +199,11 @@ void TaskMain(void *pdata)
 					LastSetFlow = sysctl->setFlow;
 					sprintf(FlowStr, "%02d.%02d", sysctl->setFlow/1000, (sysctl->setFlow/10)%100);
 					ShowStr(2, 4, FlowStr, 0);
+				}
+				if (LastSetPressure != sysctl->pressMax) {
+					LastSetPressure = sysctl->pressMax;
+					sprintf(PressMaxStr, "%02d.%02d", sysctl->pressMax/100, sysctl->pressMax%100);
+					ShowStr(1, 4, PressMaxStr, 0);
 				}
 			}
 		} else if (sysctl->interface == PURGING) {

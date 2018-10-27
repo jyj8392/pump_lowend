@@ -173,32 +173,64 @@
           <Type>0</Type>
           <LineNumber>480</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134253112</Address>
+          <Address>134253076</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>E:\脰脺脝脰\STM32F103RCT6\src\bsp\stm32f10x_it.c</Filename>
+          <Filename>E:\脰脺脝脰\work\鲁脤陆脺\脥卢脤茂卤脙碌莽脗路脰脴脳枚\software\pump_lowend\V1.3\200ml\src\bsp\stm32f10x_it.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\pump\../src/bsp/stm32f10x_it.c\480</Expression>
+          <Expression></Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
           <LineNumber>484</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134253128</Address>
+          <Address>134253092</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>E:\脰脺脝脰\STM32F103RCT6\src\bsp\stm32f10x_it.c</Filename>
+          <Filename>E:\脰脺脝脰\work\鲁脤陆脺\脥卢脤茂卤脙碌莽脗路脰脴脳枚\software\pump_lowend\V1.3\200ml\src\bsp\stm32f10x_it.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\pump\../src/bsp/stm32f10x_it.c\484</Expression>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>110</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134260070</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>E:\脰脺脝脰\work\鲁脤陆脺\脥卢脤茂卤脙碌莽脗路脰脴脳枚\software\pump_lowend\V1.3\200ml\src\system\communication.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>203</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134257054</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>E:\脰脺脝脰\work\鲁脤陆脺\脥卢脤茂卤脙碌莽脗路脰脴脳枚\software\pump_lowend\V1.3\200ml\src\system\interface.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>

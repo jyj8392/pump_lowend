@@ -90,7 +90,7 @@ void TaskPC(void *pdata)
 				break;
 			case 10:
 				if (frameData.VALUE <= MAXFLOW * 1000) {
-					sysctl->setFlow = frameData.VALUE;
+					sysctl->setFlow = frameData.VALUE / 10;
 					PumpSetFlow(sysctl->setFlow);
 					USART2_Putc(ACK);
 				} else {
