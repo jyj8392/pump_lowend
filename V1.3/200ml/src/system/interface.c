@@ -307,7 +307,7 @@ void TaskMain(void *pdata)
 					ShowStr(1, 4, PressMaxStr, 1);
 					break;
 				case KEYSTART:
-					if (MAXPRESSURE * 1000 >= SetPressMaxPos[0] * 1000 + SetPressMaxPos[1] * 100 + SetPressMaxPos[2] * 10 + SetPressMaxPos[3] * 1) {
+					if (MAXPRESSURE * 100 >= SetPressMaxPos[0] * 1000 + SetPressMaxPos[1] * 100 + SetPressMaxPos[2] * 10 + SetPressMaxPos[3] * 1) {
 						sysctl->pressMax = SetPressMaxPos[0] * 1000 + SetPressMaxPos[1] * 100 + SetPressMaxPos[2] * 10 + SetPressMaxPos[3] * 1;
 						ShowStr(1, 4, PressMaxStr, 0);
 						sysctl->interface = WORKING;

@@ -106,7 +106,7 @@ void TaskPC(void *pdata)
 				}
 				break;
 			case 13:
-				if (frameData.VALUE <= MAXPRESSURE * 1000) {
+				if (frameData.VALUE <= MAXPRESSURE * 100) {
 					sysctl->pressMax = frameData.VALUE;
 					USART2_Putc(ACK);
 				} else {
