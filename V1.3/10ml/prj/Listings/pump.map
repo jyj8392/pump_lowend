@@ -1311,17 +1311,17 @@ Image Symbol Table
     .data                                    0x20000100   Section        4  errno.o(.data)
     _errno                                   0x20000100   Data           4  errno.o(.data)
     .bss                                     0x20000104   Section       28  communication.o(.bss)
-    .bss                                     0x20000120   Section       40  flash.o(.bss)
-    .bss                                     0x20000148   Section     9600  main.o(.bss)
-    .bss                                     0x200026c8   Section       20  rcc.o(.bss)
-    .bss                                     0x200026dc   Section       64  ad.o(.bss)
-    .bss                                     0x2000271c   Section      128  pressure.o(.bss)
-    .bss                                     0x200027a0   Section      192  pump.o(.bss)
-    .bss                                     0x20002860   Section      256  fft.o(.bss)
-    .bss                                     0x20002960   Section       64  pid.o(.bss)
-    .bss                                     0x200029a0   Section     4312  os_core.o(.bss)
-    .bss                                     0x20003a78   Section      384  os_view.o(.bss)
-    STACK                                    0x20003bf8   Section    32768  startup_stm32f10x_hd.o(STACK)
+    .bss                                     0x20000120   Section       88  flash.o(.bss)
+    .bss                                     0x20000178   Section     9600  main.o(.bss)
+    .bss                                     0x200026f8   Section       20  rcc.o(.bss)
+    .bss                                     0x2000270c   Section       64  ad.o(.bss)
+    .bss                                     0x2000274c   Section      128  pressure.o(.bss)
+    .bss                                     0x200027d0   Section      192  pump.o(.bss)
+    .bss                                     0x20002890   Section      256  fft.o(.bss)
+    .bss                                     0x20002990   Section       64  pid.o(.bss)
+    .bss                                     0x200029d0   Section     4312  os_core.o(.bss)
+    .bss                                     0x20003aa8   Section      384  os_view.o(.bss)
+    STACK                                    0x20003c28   Section    32768  startup_stm32f10x_hd.o(STACK)
 
     Global Symbols
 
@@ -2102,35 +2102,35 @@ Image Symbol Table
     OSView_TxStrDlyCtr                       0x200000f8   Data           2  os_view.o(.data)
     OSView_TerminalRxCallbackFnct            0x200000fc   Data           4  os_view.o(.data)
     frameData                                0x20000104   Data          28  communication.o(.bss)
-    FlashImage_flowPara                      0x20000120   Data          40  flash.o(.bss)
-    TaskStkInit                              0x20000148   Data        1600  main.o(.bss)
-    TaskStkKey                               0x20000788   Data        1600  main.o(.bss)
-    TaskStkBZ                                0x20000dc8   Data        1600  main.o(.bss)
-    TaskStkPUMP                              0x20001408   Data        1600  main.o(.bss)
-    TaskStkPC                                0x20001a48   Data        1600  main.o(.bss)
-    TaskStkMain                              0x20002088   Data        1600  main.o(.bss)
-    RCC_ClockFreq                            0x200026c8   Data          20  rcc.o(.bss)
-    ADC_InitStructure                        0x200026dc   Data          20  ad.o(.bss)
-    DMA_InitStructure                        0x200026f0   Data          44  ad.o(.bss)
-    adValFFTArray                            0x2000271c   Data         128  pressure.o(.bss)
-    PumpCtl                                  0x200027a0   Data         192  pump.o(.bss)
-    s                                        0x20002860   Data         256  fft.o(.bss)
-    Cnt_PID                                  0x20002960   Data          64  pid.o(.bss)
-    OSEventTbl                               0x200029a0   Data         480  os_core.o(.bss)
-    OSFlagTbl                                0x20002b80   Data          80  os_core.o(.bss)
-    OSTaskStatStk                            0x20002bd0   Data         256  os_core.o(.bss)
-    OSTaskIdleStk                            0x20002cd0   Data         128  os_core.o(.bss)
-    OSTCBPrioTbl                             0x20002d50   Data         256  os_core.o(.bss)
-    OSTCBTbl                                 0x20002e50   Data        1936  os_core.o(.bss)
-    OSMemTbl                                 0x200035e0   Data         120  os_core.o(.bss)
-    OSQTbl                                   0x20003658   Data          96  os_core.o(.bss)
-    OSTmrTbl                                 0x200036b8   Data         640  os_core.o(.bss)
-    OSTmrTaskStk                             0x20003938   Data         256  os_core.o(.bss)
-    OSTmrWheelTbl                            0x20003a38   Data          64  os_core.o(.bss)
-    OSView_RxBuf                             0x20003a78   Data         128  os_view.o(.bss)
-    OSView_TxBuf                             0x20003af8   Data         128  os_view.o(.bss)
-    OSView_TxStrBuf                          0x20003b78   Data         128  os_view.o(.bss)
-    __initial_sp                             0x2000bbf8   Data           0  startup_stm32f10x_hd.o(STACK)
+    FlashImage_flowPara                      0x20000120   Data          88  flash.o(.bss)
+    TaskStkInit                              0x20000178   Data        1600  main.o(.bss)
+    TaskStkKey                               0x200007b8   Data        1600  main.o(.bss)
+    TaskStkBZ                                0x20000df8   Data        1600  main.o(.bss)
+    TaskStkPUMP                              0x20001438   Data        1600  main.o(.bss)
+    TaskStkPC                                0x20001a78   Data        1600  main.o(.bss)
+    TaskStkMain                              0x200020b8   Data        1600  main.o(.bss)
+    RCC_ClockFreq                            0x200026f8   Data          20  rcc.o(.bss)
+    ADC_InitStructure                        0x2000270c   Data          20  ad.o(.bss)
+    DMA_InitStructure                        0x20002720   Data          44  ad.o(.bss)
+    adValFFTArray                            0x2000274c   Data         128  pressure.o(.bss)
+    PumpCtl                                  0x200027d0   Data         192  pump.o(.bss)
+    s                                        0x20002890   Data         256  fft.o(.bss)
+    Cnt_PID                                  0x20002990   Data          64  pid.o(.bss)
+    OSEventTbl                               0x200029d0   Data         480  os_core.o(.bss)
+    OSFlagTbl                                0x20002bb0   Data          80  os_core.o(.bss)
+    OSTaskStatStk                            0x20002c00   Data         256  os_core.o(.bss)
+    OSTaskIdleStk                            0x20002d00   Data         128  os_core.o(.bss)
+    OSTCBPrioTbl                             0x20002d80   Data         256  os_core.o(.bss)
+    OSTCBTbl                                 0x20002e80   Data        1936  os_core.o(.bss)
+    OSMemTbl                                 0x20003610   Data         120  os_core.o(.bss)
+    OSQTbl                                   0x20003688   Data          96  os_core.o(.bss)
+    OSTmrTbl                                 0x200036e8   Data         640  os_core.o(.bss)
+    OSTmrTaskStk                             0x20003968   Data         256  os_core.o(.bss)
+    OSTmrWheelTbl                            0x20003a68   Data          64  os_core.o(.bss)
+    OSView_RxBuf                             0x20003aa8   Data         128  os_view.o(.bss)
+    OSView_TxBuf                             0x20003b28   Data         128  os_view.o(.bss)
+    OSView_TxStrBuf                          0x20003ba8   Data         128  os_view.o(.bss)
+    __initial_sp                             0x2000bc28   Data           0  startup_stm32f10x_hd.o(STACK)
 
 
 
@@ -2347,7 +2347,7 @@ Memory Map of the image
     0x0800be28   0x00000020   Data   RO         1906    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x0000bbf8, Max: 0x0000c000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x0000bc28, Max: 0x0000c000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2366,18 +2366,18 @@ Memory Map of the image
     0x200000d0   0x00000030   Data   RW         1437    .data               stm32ucoslib.lib(os_view.o)
     0x20000100   0x00000004   Data   RW         1849    .data               mc_w.l(errno.o)
     0x20000104   0x0000001c   Zero   RW            3    .bss                communication.o
-    0x20000120   0x00000028   Zero   RW          118    .bss                flash.o
-    0x20000148   0x00002580   Zero   RW          186    .bss                main.o
-    0x200026c8   0x00000014   Zero   RW          728    .bss                rcc.o
-    0x200026dc   0x00000040   Zero   RW          754    .bss                ad.o
-    0x2000271c   0x00000080   Zero   RW          777    .bss                pressure.o
-    0x2000279c   0x00000004   PAD
-    0x200027a0   0x000000c0   Zero   RW          872    .bss                pump.o
-    0x20002860   0x00000100   Zero   RW         1059    .bss                fft.o
-    0x20002960   0x00000040   Zero   RW         1085    .bss                pid.o
-    0x200029a0   0x000010d8   Zero   RW         1255    .bss                stm32ucoslib.lib(os_core.o)
-    0x20003a78   0x00000180   Zero   RW         1436    .bss                stm32ucoslib.lib(os_view.o)
-    0x20003bf8   0x00008000   Zero   RW          554    STACK               startup_stm32f10x_hd.o
+    0x20000120   0x00000058   Zero   RW          118    .bss                flash.o
+    0x20000178   0x00002580   Zero   RW          186    .bss                main.o
+    0x200026f8   0x00000014   Zero   RW          728    .bss                rcc.o
+    0x2000270c   0x00000040   Zero   RW          754    .bss                ad.o
+    0x2000274c   0x00000080   Zero   RW          777    .bss                pressure.o
+    0x200027cc   0x00000004   PAD
+    0x200027d0   0x000000c0   Zero   RW          872    .bss                pump.o
+    0x20002890   0x00000100   Zero   RW         1059    .bss                fft.o
+    0x20002990   0x00000040   Zero   RW         1085    .bss                pid.o
+    0x200029d0   0x000010d8   Zero   RW         1255    .bss                stm32ucoslib.lib(os_core.o)
+    0x20003aa8   0x00000180   Zero   RW         1436    .bss                stm32ucoslib.lib(os_view.o)
+    0x20003c28   0x00008000   Zero   RW          554    STACK               startup_stm32f10x_hd.o
 
 
 ==============================================================================
@@ -2390,7 +2390,7 @@ Image component sizes
        272         28          0          4         64       1837   ad.o
       1192        114          0          0         28     288741   communication.o
        552         16          0          0        256       2884   fft.o
-       734         98          0         16         40       8923   flash.o
+       734         98          0         16         88       8923   flash.o
        600         12          0          0          0        809   gpio.o
       3240        344          0          0          0       2463   interface.o
       1092         42          0          0          0       5513   lcd12864.o
@@ -2407,7 +2407,7 @@ Image component sizes
        236         18          0          0          0       1754   usart.o
 
     ----------------------------------------------------------------------
-     14824       1172        424         88      43164     381613   Object Totals
+     14824       1172        424         88      43212     381613   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         16          0          0          3          4          0   (incl. Padding)
 
@@ -2517,14 +2517,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     47488       2728       1224        260      47860     838351   Grand Totals
-     47488       2728       1224        260      47860     838351   ELF Image Totals
+     47488       2728       1224        260      47908     838351   Grand Totals
+     47488       2728       1224        260      47908     838351   ELF Image Totals
      47488       2728       1224        260          0          0   ROM Totals
 
 ==============================================================================
 
     Total RO  Size (Code + RO Data)                48712 (  47.57kB)
-    Total RW  Size (RW Data + ZI Data)             48120 (  46.99kB)
+    Total RW  Size (RW Data + ZI Data)             48168 (  47.04kB)
     Total ROM Size (Code + RO Data + RW Data)      48972 (  47.82kB)
 
 ==============================================================================

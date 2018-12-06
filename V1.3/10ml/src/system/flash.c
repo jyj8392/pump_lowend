@@ -65,7 +65,7 @@ u16 FlashImage_pressMax = 0;
 u16 FlashImage_pressMin = 0;
 u8 FlashImage_backLumin = 0;
 u8 FlashImage_keyBeep = 0;
-struct pumpflow_t FlashImage_flowPara[10];
+struct pumpflow_t FlashImage_flowPara[FLOWPATALEN];
 	
 void Read_Flash(struct sys_ctl *sysctl)
 {
