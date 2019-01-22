@@ -1,0 +1,11 @@
+"MAIN.obj",
+"STC_ISP_RW.obj",
+"lcd.obj",
+"pump_AtoB.obj",
+"TLC549.obj",
+"DELAY_NS.obj",
+"KEY_SCAN.obj",
+"KEY_SCAN_ONE.obj",
+"OUTPUT.obj" 
+TO "TBP1002D" 
+RAMSIZE(256) 

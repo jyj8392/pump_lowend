@@ -1,0 +1,117 @@
+A51 MACRO ASSEMBLER  KEY_SCAN                                                             01/09/2019 16:29:44 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN KEY_SCAN.OBJ
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE KEY_SCAN.asm SET(LARGE) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+                       3     
+                       4     
+                       5     
+                       6      
+                       7     ?PR?KEY_SCAN SEGMENT CODE   ; //        ÔÚ³ÌÐò´æ´¢ÇøÖÐ¶¨Òå¶Î
+                       8     
+                       9     PUBLIC KEY_SCAN        ;      //ÉùÃ÷º¯Ê
+                      10     
+----                  11     RSEG ?PR?KEY_SCAN;     //º¯Ê¿É±»Á¬½ÓÆ÷·ÅÖÃÔÚÈÎºÎµØ·½
+                      12     
+                      13     
+                      14     
+0000                  15     KEY_SCAN:
+                      16     
+                      17          
+0000 7BF7             18     KEYL1:  MOV R3,#0F7H
+0002 7F00             19             MOV R7,#00H
+                      20     
+                      21     
+0004 74F0             22             MOV A,#0F0H
+0006 F590             23             MOV P1,A
+0008 E590             24             MOV A,P1
+000A B4F003           25             CJNE A,#0F0H,KEYDOU
+                      26            ; LJMP KEYEND
+000D 020000   F       27                LJMP KEYL1
+0010 7E00             28     KEYDOU:  MOV R6,#00H
+0012 DEFE             29              DJNZ R6,$
+                      30     
+0014 E590             31              MOV A,P1
+0016 B4F003           32              CJNE A,#0F0H,KEYDOUIN
+                      33            ; LJMP KEYEND
+0019 020000   F       34                LJMP KEYL1
+001C 00               35     KEYDOUIN: NOP
+                      36     
+001D EB               37     KEYL2:  MOV A,R3
+001E F590             38             MOV P1,A
+0020 E590             39             MOV A,P1
+0022 FC               40             MOV R4,A
+0023 D3               41             SETB C
+0024 7D04             42             MOV R5,#04H
+0026 33               43     KEYL3:  RLC A
+0027 500C             44             JNC KEYIN
+0029 0F               45             INC R7
+002A DDFA             46             DJNZ R5,KEYL3
+002C EB               47             MOV A,R3
+002D D3               48             SETB C
+002E 13               49             RRC A
+002F FB               50             MOV R3,A
+0030 40EB             51             JC KEYL2
+                      52           
+0032 020000   F       53                 LJMP KEYL1
+0035 D2A7             54     KEYIN:  SETB P2.7    
+0037 7E3C             55             MOV R6,#60
+0039 7DF8             56     KEYD2:  MOV R5,#248
+003B DDFE             57             DJNZ R5,$
+003D DEFA             58             DJNZ R6,KEYD2
+A51 MACRO ASSEMBLER  KEY_SCAN                                                             01/09/2019 16:29:44 PAGE     2
+
+003F C2A7             59             CLR P2.7
+0041 E590             60     KEYD3:  MOV A,P1
+0043 6C               61             XRL A,R4
+0044 60FB             62             JZ KEYD3
+0046 120000   F       63             LCALL DELAY1
+0049 00               64     KEYEND:  NOP
+                      65             
+004A 22               66              RET
+                      67     ;******************************************
+004B 783C             68     DELAY1: MOV R0,#60
+004D 7E06             69     D1L2:   MOV R6,#06
+004F 7DF8             70     D1L1:   MOV R5,#248
+0051 DDFE             71             DJNZ R5,$
+0053 DEFA             72             DJNZ R6,D1L1
+0055 D8F6             73             DJNZ R0,D1L2
+0057 22               74             RET
+                      75     ;******************************************************
+                      76                      END
+A51 MACRO ASSEMBLER  KEY_SCAN                                                             01/09/2019 16:29:44 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?PR?KEY_SCAN . . .  C SEG    0058H       REL=UNIT
+D1L1 . . . . . . .  C ADDR   004FH   R   SEG=?PR?KEY_SCAN
+D1L2 . . . . . . .  C ADDR   004DH   R   SEG=?PR?KEY_SCAN
+DELAY1 . . . . . .  C ADDR   004BH   R   SEG=?PR?KEY_SCAN
+KEYD2. . . . . . .  C ADDR   0039H   R   SEG=?PR?KEY_SCAN
+KEYD3. . . . . . .  C ADDR   0041H   R   SEG=?PR?KEY_SCAN
+KEYDOU . . . . . .  C ADDR   0010H   R   SEG=?PR?KEY_SCAN
+KEYDOUIN . . . . .  C ADDR   001CH   R   SEG=?PR?KEY_SCAN
+KEYEND . . . . . .  C ADDR   0049H   R   SEG=?PR?KEY_SCAN
+KEYIN. . . . . . .  C ADDR   0035H   R   SEG=?PR?KEY_SCAN
+KEYL1. . . . . . .  C ADDR   0000H   R   SEG=?PR?KEY_SCAN
+KEYL2. . . . . . .  C ADDR   001DH   R   SEG=?PR?KEY_SCAN
+KEYL3. . . . . . .  C ADDR   0026H   R   SEG=?PR?KEY_SCAN
+KEY_SCAN . . . . .  C ADDR   0000H   R   SEG=?PR?KEY_SCAN
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

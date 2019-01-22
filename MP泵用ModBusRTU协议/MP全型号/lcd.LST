@@ -1,0 +1,90 @@
+C51 COMPILER V9.59.0.0   LCD                                                               01/09/2019 16:29:41 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN lcd.OBJ
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE lcd.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          
+   2          
+   3          #include<main.h>
+   4          #include "lcd.h"
+   5          
+   6          sbit LCD_RS = P2^3;
+   7          sbit LCD_RW = P2^4;
+   8          sbit LCD_PSB = P2^6;
+   9          sbit LCD_E = P2^5;
+  10          
+  11          /*void delay()
+  12          {
+  13                  unsigned int idata i,j;
+  14                  for(i=0;i<10;i++)
+  15                          for(j=0;j<10;j++);
+  16          } */
+  17          void LCD_busy()
+  18          {
+  19   1              unsigned char idata busy_flag = 0;
+  20   1      
+  21   1              do{             
+  22   2                      LCD_E = 1;
+  23   2                      busy_flag = P0;
+  24   2                      LCD_E = 0;
+  25   2              }while((busy_flag & 0x80) != 0);
+  26   1      }
+  27          
+  28          void LCD_WRI(unsigned char LCD_COM)
+  29          {
+  30   1      //      LCD_E = 0;
+  31   1              LCD_RS = 0;
+  32   1              LCD_RW = 1;
+  33   1          P0 = 0xff;
+  34   1              LCD_busy();
+  35   1              LCD_E = 0;
+  36   1      //      delay();
+  37   1              LCD_RW = 0;
+  38   1              P0 = LCD_COM;
+  39   1      //      delay();
+  40   1      
+  41   1              LCD_E = 1;LCD_E = 0;
+  42   1      }
+  43          
+  44          void LCD_WRD(unsigned char LCD_DATA)
+  45          {       LCD_RS = 0;
+  46   1              LCD_RW = 1;
+  47   1              P0 = 0xff;
+  48   1              LCD_busy();
+  49   1      //      delay();
+  50   1              LCD_RS = 1;
+  51   1              LCD_RW = 0;
+  52   1              P0 = LCD_DATA;
+  53   1      //      delay();
+  54   1      
+  55   1              LCD_E = 1;LCD_E = 0;
+C51 COMPILER V9.59.0.0   LCD                                                               01/09/2019 16:29:41 PAGE 2   
+
+  56   1      ;
+  57   1      }
+  58          void LCD_ini()
+  59          {
+  60   1              LCD_WRI(0x30); //功能设置-基本指令集
+  61   1              LCD_WRI(0x0f); //显示打开,光标关,反白显示关
+  62   1              LCD_WRI(0x01); //清屏
+  63   1              LCD_WRI(0x06); //进入点设定,光标向右移动,AC+1
+  64   1              LCD_WRI(0x0c); //进入点设定,光标向右移动,AC+1
+  65   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     78    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----       1
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

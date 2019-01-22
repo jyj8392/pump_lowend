@@ -1,0 +1,74 @@
+A51 MACRO ASSEMBLER  TLC549                                                               01/09/2019 16:29:44 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN TLC549.OBJ
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE TLC549.asm SET(LARGE) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+  00B2                 2      CS549   EQU   P3.2
+  00B3                 3      CLK549  EQU   P3.3
+  00B5                 4      DATA549 EQU   P3.5
+                       5     ; ADC     EQU   22H
+                       6     
+                       7     ?PR?TLC549 SEGMENT CODE   ; //        ÔÚ³ÌÐò´æ´¢ÇøÖÐ¶¨Òå¶Î
+                       8     
+                       9     PUBLIC TLC549        ;      //ÉùÃ÷º¯Ê
+                      10     
+----                  11     RSEG ?PR?TLC549;     //º¯Ê¿É±»Á¬½ÓÆ÷·ÅÖÃÔÚÈÎºÎµØ·½
+                      12     
+                      13     
+                      14     ;TLC549
+0000 D2B2             15      TLC549: SETB CS549
+0002 D2B5             16              SETB DATA549
+0004 C2B3             17              CLR CLK549
+0006 7807             18              MOV R0,#7
+0008 D8FE             19              DJNZ R0,$
+000A 00               20              NOP
+000B 7400             21              MOV A,#00H
+000D C3               22              CLR C
+000E C2B2             23              CLR CS549
+0010 00               24              NOP
+0011 00               25              NOP
+0012 A2B5             26              MOV C,DATA549
+0014 33               27              RLC A
+0015 7907             28              MOV R1,#07H
+0017 D2B3             29     DATAOUT: SETB CLK549
+0019 00               30              NOP
+001A C2B3             31              CLR CLK549
+001C 00               32              NOP
+001D A2B5             33              MOV C,DATA549
+001F 33               34              RLC A
+0020 D9F5             35              DJNZ R1,DATAOUT
+0022 D2B3             36              SETB CLK549
+0024 00               37              NOP
+0025 C2B3             38              CLR CLK549
+0027 D2B2             39              SETB CS549
+                      40            ;  MOV ADC,A
+0029 FF               41                  MOV R7,A
+002A 22               42              RET
+                      43     ;---------------------------------------
+                      44              END
+A51 MACRO ASSEMBLER  TLC549                                                               01/09/2019 16:29:44 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?PR?TLC549 . . . .  C SEG    002BH       REL=UNIT
+CLK549 . . . . . .  B ADDR   00B0H.3 A   
+CS549. . . . . . .  B ADDR   00B0H.2 A   
+DATA549. . . . . .  B ADDR   00B0H.5 A   
+DATAOUT. . . . . .  C ADDR   0017H   R   SEG=?PR?TLC549
+P3 . . . . . . . .  D ADDR   00B0H   A   
+TLC549 . . . . . .  C ADDR   0000H   R   SEG=?PR?TLC549
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

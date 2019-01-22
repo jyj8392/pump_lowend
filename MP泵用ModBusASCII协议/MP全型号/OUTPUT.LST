@@ -1,0 +1,62 @@
+A51 MACRO ASSEMBLER  OUTPUT                                                               01/21/2019 14:30:29 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN OUTPUT.OBJ
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE OUTPUT.asm SET(LARGE) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+  00A0                 2      TXD_M     EQU   P2.0
+  00A1                 3      RXD_M     EQU   P2.1
+                       4     
+                       5     ?PR?_OUTPUT SEGMENT CODE   ; //        ÔÚ³ÌÐò´æ´¢ÇøÖÐ¶¨Òå¶Î
+                       6     
+                       7     PUBLIC _OUTPUT        ;      //ÉùÃ÷º¯Ê
+                       8     
+----                   9     RSEG ?PR?_OUTPUT;     //º¯Ê¿É±»Á¬½ÓÆ÷·ÅÖÃÔÚÈÎºÎµØ·½
+                      10     
+                      11     ;******************************************
+                      12     ;·¢ËÍÊ¾Ý×Ó³ÌÐò
+0000 EF               13     _OUTPUT: MOV A,R7
+0001 C3               14              CLR C
+0002 92A0             15              MOV TXD_M,C
+0004 120000   F       16              LCALL DEL833
+0007 7B08             17              MOV R3,#8
+0009 33               18       OUT:   RLC  A
+000A 92A0             19              MOV TXD_M,C
+000C 120000   F       20              LCALL DEL833
+000F DBF8             21              DJNZ R3,OUT
+0011 D3               22              SETB C
+0012 92A0             23              MOV TXD_M,C
+0014 120000   F       24              LCALL DEL833
+0017 22               25              RET
+                      26     ;*******************************
+                      27     ;***************************
+0018 7ECD             28      DEL833: MOV R6,#205
+001A DEFE             29              DJNZ R6,$
+001C 22               30              RET
+                      31     ;****************************
+                      32              END
+A51 MACRO ASSEMBLER  OUTPUT                                                               01/21/2019 14:30:29 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?PR?_OUTPUT. . . .  C SEG    001DH       REL=UNIT
+DEL833 . . . . . .  C ADDR   0018H   R   SEG=?PR?_OUTPUT
+OUT. . . . . . . .  C ADDR   0009H   R   SEG=?PR?_OUTPUT
+P2 . . . . . . . .  D ADDR   00A0H   A   
+RXD_M. . . . . . .  B ADDR   00A0H.1 A   
+TXD_M. . . . . . .  B ADDR   00A0H.0 A   
+_OUTPUT. . . . . .  C ADDR   0000H   R   SEG=?PR?_OUTPUT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

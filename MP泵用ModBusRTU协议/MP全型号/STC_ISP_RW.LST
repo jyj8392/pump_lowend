@@ -1,0 +1,104 @@
+C51 COMPILER V9.59.0.0   STC_ISP_RW                                                        01/09/2019 16:29:41 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE STC_ISP_RW
+OBJECT MODULE PLACED IN STC_ISP_RW.OBJ
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE STC_ISP_RW.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <main.h>
+   2          #include <intrins.h>
+   3          #include "STC_ISP_RW.h"
+   4          
+   5          
+   6          //打开 ISP,IAP 功能 
+   7          void ISP_IAP_enable(void)
+   8          {
+   9   1              EA      =       0;      // 关中断 
+  10   1              ISP_CONTR       =       ISP_CONTR & 0x18;       // 0001,1000
+  11   1              ISP_CONTR       =       ISP_CONTR | WAIT_TIME;
+  12   1              ISP_CONTR       =       ISP_CONTR | 0x80;       // 1000,0000 
+  13   1      }
+  14          
+  15          // 关闭 ISP,IAP 功能 
+  16          void ISP_IAP_disable(void)
+  17          {                                                                               
+  18   1              ISP_CONTR       =       ISP_CONTR & 0x7f;       // 0111,1111 
+  19   1              ISP_TRIG        =       0x00;
+  20   1              EA                      =   1;                   // 开中断 
+  21   1      }
+  22          
+  23          // 字节读
+  24          unsigned char EEPROM_byte_read(unsigned int byte_addr)
+  25          {
+  26   1              ISP_ADDRH       =       (unsigned char)(byte_addr >> 8);
+  27   1              ISP_ADDRL       =       (unsigned char)(byte_addr & 0x00ff);
+  28   1      
+  29   1              ISP_CMD         =       ISP_CMD &       0xf8;       // 1111,1000 
+  30   1              ISP_CMD         =       ISP_CMD |       Read_Byte_Cmd;        // 0000,0001 
+  31   1      
+  32   1              ISP_IAP_enable();
+  33   1      
+  34   1              ISP_TRIG        =       0x46;
+  35   1              ISP_TRIG        =       0xb9;
+  36   1              _nop_();
+  37   1      
+  38   1              ISP_IAP_disable();
+  39   1              return (ISP_DATA);
+  40   1      }
+  41          
+  42          // 扇区擦除
+  43          unsigned char EEPROM_sector_erase(unsigned int sector_addr)
+  44          {
+  45   1              unsigned int get_sector_addr    =       0;
+  46   1              get_sector_addr                 =       (sector_addr & 0xfe00); /// 1111,1110,0000,0000; 取扇区地址
+  47   1              ISP_ADDRH                       =       (unsigned char)(get_sector_addr >> 8);
+  48   1              ISP_ADDRL                       =       0x00;
+  49   1      
+  50   1              ISP_CMD =       ISP_CMD &       0xf8;   // 1111,1000
+  51   1              ISP_CMD =       ISP_CMD |       Erase_Section_Cmd;      // 0000,0011
+  52   1      
+  53   1              ISP_IAP_enable();
+  54   1              ISP_TRIG        =       0x46;        // 触发ISP_IAP命令 
+  55   1              ISP_TRIG        =       0xb9;        // 触发ISP_IAP命令 
+C51 COMPILER V9.59.0.0   STC_ISP_RW                                                        01/09/2019 16:29:41 PAGE 2   
+
+  56   1               _nop_();
+  57   1      
+  58   1              ISP_IAP_disable();
+  59   1              return 1;
+  60   1      }
+  61          
+  62          //字节编程 
+  63          unsigned char EEPROM_byte_program(unsigned int byte_addr, unsigned char original_data)
+  64          {
+  65   1              ISP_ADDRH       =       (unsigned char)(byte_addr >> 8);
+  66   1              ISP_ADDRL       =       (unsigned char)(byte_addr & 0x00ff);
+  67   1      
+  68   1              ISP_CMD         =       ISP_CMD &       0xf8;        // 1111,1000 
+  69   1              ISP_CMD         =       ISP_CMD |       Write_Byte_Cmd;         // 0000,0010 
+  70   1              ISP_DATA        =       original_data;
+  71   1      
+  72   1              ISP_IAP_enable();
+  73   1              ISP_TRIG        =       0x46;        // 触发ISP_IAP命令 
+  74   1              ISP_TRIG        =       0xb9;        // 触发ISP_IAP命令 
+  75   1              _nop_();
+  76   1      
+  77   1              ISP_IAP_disable();
+  78   1              return  1;
+  79   1      }               
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    122    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

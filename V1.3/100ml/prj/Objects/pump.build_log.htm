@@ -3,45 +3,107 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.14.2
-Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Cortex-M3, Microsoft, LIC=LSNNN-Y4GU2-PZ9WB-27MWL-4VUYF-KJ1IE
+IDE-Version: μVision V5.25.3.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 1 1, 1, LIC=BUUII-TQGDU-PB1EG-VHLPU-55II8-HJTFH
  
 Tool Versions:
-Toolchain:       MDK-ARM Standard  Version: 5.11.0.0
+Toolchain:       MDK-ARM Plus  Version: 5.25.2.0
 Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.04 update 1 (build 49)
-Assembler:       Armasm.exe V5.04 update 1 (build 49)
-Linker/Locator:  ArmLink.exe V5.04 update 1 (build 49)
-Library Manager: ArmAr.exe V5.04 update 1 (build 49)
-Hex Converter:   FromElf.exe V5.04 update 1 (build 49)
-CPU DLL:         SARMCM3.DLL V5.11.0.0
-Dialog DLL:      DCM.DLL V1.11.0.0
-Target DLL:      Segger\JL2CM3.dll V2.97.0.0
-Dialog DLL:      TCM.DLL V1.14.1.0
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.25.2.0
+Dialog DLL:      DCM.DLL V1.17.1.0
+Target DLL:      Segger\JL2CM3.dll V2.99.29.0
+Dialog DLL:      TCM.DLL V1.35.1.0
  
 <h2>Project:</h2>
-E:\周浦\work\程杰\同田泵电路重做\software\pump_lowend\V1.3\100ml\prj\pump.uvprojx
-Project File Date:  07/28/2018
+E:\research\software\pump_lowend\V1.3\100ml\prj\pump.uvprojx
+Project File Date:  01/22/2019
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.04 update 1 (build 49)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
 compiling communication.c...
+compiling flash.c...
+..\src\system\flash.c(104): warning:  #69-D: integer conversion resulted in truncation
+  		sysctl->purgeFlow = MAXFLOW * 1000;
+..\src\system\flash.c: 1 warning, 0 errors
+compiling main.c...
+..\src\system\main.c(305): warning:  #177-D: variable "sysctl"  was declared but never referenced
+  	struct sys_ctl *sysctl = pdata;
+..\src\system\main.c(306): warning:  #177-D: variable "keyVal"  was declared but never referenced
+  	u8 *keyVal;
+..\src\system\main.c(307): warning:  #177-D: variable "CRCTmp"  was declared but never referenced
+  	u8 CRCTmp[13];
+..\src\system\main.c: 3 warnings, 0 errors
 compiling interface.c...
-..\src\system\interface.c(36): warning:  #177-D: variable "AccCntStr" was declared but never referenced
-        char AccCntStr[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+..\src\system\interface.c(36): warning:  #177-D: variable "AccCntStr"  was declared but never referenced
+  	char AccCntStr[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 ..\src\system\interface.c: 1 warning, 0 errors
+assembling startup_stm32f10x_hd.s...
+compiling system_stm32f10x.c...
+compiling nvic.c...
+compiling stm32f10x_it.c...
+compiling gpio.c...
+compiling pwm.c...
+compiling rcc.c...
+compiling usart.c...
+compiling tim.c...
+..\src\bsp\tim.c(111): warning:  #177-D: variable "i"  was declared but never referenced
+  	int i, j, k;
+..\src\bsp\tim.c(111): warning:  #177-D: variable "j"  was declared but never referenced
+  	int i, j, k;
+..\src\bsp\tim.c(111): warning:  #177-D: variable "k"  was declared but never referenced
+  	int i, j, k;
+..\src\bsp\tim.c: 3 warnings, 0 errors
+compiling ad.c...
+compiling lcd12864.c...
+..\src\unit\lcd12864\lcd12864.c(55): warning:  #177-D: variable "isBusy"  was declared but never referenced
+  	unsigned char isBusy = 0;
+..\src\unit\lcd12864\lcd12864.c: 1 warning, 0 errors
+compiling pump.c...
+compiling pressure.c...
+..\src\unit\pressure\pressure.c(23): warning:  #177-D: variable "i"  was declared but never referenced
+      unsigned char i = 0;
+..\src\unit\pressure\pressure.c(24): warning:  #177-D: variable "data1"  was declared but never referenced
+  	unsigned char data1 = 0;
+..\src\unit\pressure\pressure.c: 2 warnings, 0 errors
+compiling flow.c...
+..\src\unit\flowsetting\flow.c(23): warning:  #177-D: variable "i"  was declared but never referenced
+      unsigned char i = 0;
+..\src\unit\flowsetting\flow.c(24): warning:  #177-D: variable "data1"  was declared but never referenced
+  	unsigned char data1 = 0;
+..\src\unit\flowsetting\flow.c(57): warning:  #177-D: variable "last_ret"  was declared but never referenced
+  	static double last_ret = 0;
+..\src\unit\flowsetting\flow.c: 3 warnings, 0 errors
+compiling pid.c...
+compiling fft.c...
+compiling modbus_rtu_slave.c...
+..\src\unit\protocol\modbus_rtu_slave.c(983): warning:  #1-D: last line of file ends without a newline
+   
+..\src\unit\protocol\modbus_rtu_slave.c: 1 warning, 0 errors
 linking...
 Program Size: Code=47464 RO-data=1176 RW-data=260 ZI-data=47812  
 FromELF: creating hex file...
-".\Objects\pump.axf" - 0 Error(s), 1 Warning(s).
+".\Objects\pump.axf" - 0 Error(s), 15 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.3.0.pack
+                Keil.STM32F1xx_DFP.2.3.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
-  E:\周浦\work\程杰\同田泵电路重做\software\pump_lowend\V1.3\100ml\prj\RTE
-  D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+  .\RTE\_Target_1
+  D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:09
 </pre>
 </body>
 </html>

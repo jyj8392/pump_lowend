@@ -1,0 +1,53 @@
+A51 MACRO ASSEMBLER  DELAY_NS                                                             01/09/2019 16:29:44 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN DELAY_NS.OBJ
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE DELAY_NS.asm SET(LARGE) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+                       3     
+                       4     ?PR?_DELAY_NS SEGMENT CODE   ; //        ÔÚ³ÌÐò´æ´¢ÇøÖÐ¶¨Òå¶Î
+                       5     
+                       6     PUBLIC _DELAY_NS        ;      //ÉùÃ÷º¯Ê
+                       7     
+----                   8     RSEG ?PR?_DELAY_NS;     //º¯Ê¿É±»Á¬½ÓÆ÷·ÅÖÃÔÚÈÎºÎµØ·½
+                       9     
+                      10     
+0000                  11     _DELAY_NS:
+0000 EF               12              MOV A,R7
+0001 600E             13                      JZ DELAY_END
+0003 7A14             14     DELAY1S: MOV R2,#20
+0005 795F             15     D1SL1:   MOV R1,#95
+0007 7800             16     D1SL2:   MOV R0,#00H
+0009 D8FE             17              DJNZ R0,$
+000B D9FA             18              DJNZ R1,D1SL2
+000D DAF6             19              DJNZ R2,D1SL1
+                      20     ;----------------------
+000F DFEF             21              DJNZ R7,_DELAY_NS
+0011                  22     DELAY_END: 
+0011 22               23              RET
+                      24                      END
+A51 MACRO ASSEMBLER  DELAY_NS                                                             01/09/2019 16:29:44 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?PR?_DELAY_NS. . .  C SEG    0012H       REL=UNIT
+D1SL1. . . . . . .  C ADDR   0005H   R   SEG=?PR?_DELAY_NS
+D1SL2. . . . . . .  C ADDR   0007H   R   SEG=?PR?_DELAY_NS
+DELAY1S. . . . . .  C ADDR   0003H   R   SEG=?PR?_DELAY_NS
+DELAY_END. . . . .  C ADDR   0011H   R   SEG=?PR?_DELAY_NS
+_DELAY_NS. . . . .  C ADDR   0000H   R   SEG=?PR?_DELAY_NS
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
